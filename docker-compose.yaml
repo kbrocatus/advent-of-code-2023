@@ -1,0 +1,38 @@
+services:
+  php:
+    build:
+      context: .
+      target: app_php
+    networks:
+      - internal
+    volumes:
+      - php_socket:/var/run/php
+      - ./:/srv/app
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+  nginx:
+    build:
+      context: .
+      target: app_nginx
+    networks:
+      - internal
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    volumes:
+      - php_socket:/var/run/php
+      - ./public:/srv/app/public
+    depends_on:
+      - php
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.221.0/28
+
+volumes:
+  php_socket:
