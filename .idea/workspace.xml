@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0720258a-852a-4278-8730-19d99ff5dab4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/nginx/conf.d/default.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/php/conf.d/app.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/php/conf.d/xdebug.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/php/docker-healthcheck.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/php/php-fpm.d/zz-docker.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdventOfCodeBaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Day1Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Day2Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Day3Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Day3Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Day3Controller.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701600145825</updated>
-      <workItem from="1701600147418" duration="2814000" />
+      <workItem from="1701600147418" duration="7904000" />
     </task>
     <servers />
   </component>

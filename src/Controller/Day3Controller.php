@@ -14,13 +14,71 @@ class Day3Controller extends AdventOfCodeBaseController
     {
         $total = 0;
         $mapping = [];
+        $list = [];
 
         foreach ($this->getInput() as $row => $input) {
             for ($i = 0; $i < strlen($input); $i++) {
                 $mapping[$row][] = $input[$i];
             }
         }
-        return new JsonResponse(['total' => $total, 'mapping' => $mapping]);
+
+        foreach ($mapping as $index => $row) {
+            $number = null;
+
+            foreach ($row as $i => $value) {
+                // Loop till we find a symbol.
+                if (!is_numeric($value)) {
+                    if ($number === null) {
+                        continue;
+                    }
+
+                    $numberLength = strlen($number);
+
+                    // Search for surrounding symbols.
+                    $debug = [];
+
+                    for ($j = 0; $j < $numberLength + 2; $j++) {
+                        $debug[$index - 1][] = $i - $j;
+                        $debug[$index][] = $i - $j;
+                        $debug[$index + 1][] = $i - $j;
+
+                        if (isset($mapping[$index][$i - $j]) && $this->isSymbol($mapping[$index][$i - $j])) {
+                            $total += (int) $number;
+                            $list[$index][$i] = $number;
+                            $number = null;
+                            continue;
+                        }
+
+                        if (isset($mapping[$index - 1][$i - $j]) && $this->isSymbol($mapping[$index - 1][$i - $j])) {
+                            $total += (int) $number;
+                            $list[$index][$i] = $number;
+                            $number = null;
+                            continue;
+                        }
+
+                        if (isset($mapping[$index + 1][$i - $j]) && $this->isSymbol($mapping[$index + 1][$i - $j])) {
+                            $total += (int) $number;
+                            $list[$index][$i] = $number;
+                        }
+                    }
+
+                    $number = null;
+                    continue;
+                }
+
+                $number .= $value;
+            }
+        }
+
+        return new JsonResponse(['total' => $total, 'list' => $list, 'mapping' => $mapping]);
+    }
+
+    protected function isSymbol(?string $value): bool
+    {
+        if (is_null($value)) {
+            return false;
+        }
+        return $value !== '.' && !is_numeric($value);
     }
 
     public function getInput(): array
