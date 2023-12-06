@@ -17,14 +17,17 @@ class Day3Controller extends AdventOfCodeBaseController
         $list = [];
 
         foreach ($this->getInput() as $row => $input) {
-            for ($i = 0; $i < strlen($input); $i++) {
+            for ($i = 0; $i < strlen($input) + 1; $i++) {
+                if (!isset($input[$i])) {
+                    $mapping[$row][] = '.';
+                    continue;
+                }
                 $mapping[$row][] = $input[$i];
             }
         }
 
         foreach ($mapping as $index => $row) {
             $number = null;
-
             foreach ($row as $i => $value) {
                 // Loop till we find a symbol.
                 if (!is_numeric($value)) {
@@ -35,13 +38,7 @@ class Day3Controller extends AdventOfCodeBaseController
                     $numberLength = strlen($number);
 
                     // Search for surrounding symbols.
-                    $debug = [];
-
                     for ($j = 0; $j < $numberLength + 2; $j++) {
-                        $debug[$index - 1][] = $i - $j;
-                        $debug[$index][] = $i - $j;
-                        $debug[$index + 1][] = $i - $j;
-
                         if (isset($mapping[$index][$i - $j]) && $this->isSymbol($mapping[$index][$i - $j])) {
                             $total += (int) $number;
                             $list[$index][$i] = $number;
